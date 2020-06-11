@@ -1,8 +1,6 @@
-﻿using RecipesAPI.DBContexts;
-using RecipesAPI.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using RecipesAPI.DBContexts;
+using RecipesAPI.Models;
 using System.Threading.Tasks;
 
 namespace RecipesAPI.Services
@@ -11,13 +9,17 @@ namespace RecipesAPI.Services
     {
         private readonly RecipesDbContext recipesDbContext;
 
+        private DbSet<Recipe> _recipes;
+        private DbSet<Recipe> recipes => _recipes ?? (_recipes = recipesDbContext.Set<Recipe>());
+
         public RecipesService(RecipesDbContext RecipesDbContext)
         {
             recipesDbContext = RecipesDbContext;
         }
-        public async Task GetById(int id)
+
+        public async Task<Recipe> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await recipes.FindAsync(id);
         }
     }
 }
