@@ -72,6 +72,7 @@ namespace RecipesAPI
             services.AddTransient<ITokenProvider, JwtProvider>();
             services.AddTransient<EmailService>();
             services.AddScoped<AuthService>();
+            services.AddScoped<RecipesService>();
 
             services.Configure<EmailClientOptions>(Configuration.GetSection("EmailOptions"));
             services.AddLogging(loggingBuilder =>
