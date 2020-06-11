@@ -22,7 +22,7 @@ namespace RecipesAPI.Client
     /// <summary>
     /// Auth operations.
     /// </summary>
-    public partial class Auth : IServiceOperations<MyTitle>, IAuth
+    public partial class Auth : IServiceOperations<Client>, IAuth
     {
         /// <summary>
         /// Initializes a new instance of the Auth class.
@@ -30,7 +30,7 @@ namespace RecipesAPI.Client
         /// <param name='client'>
         /// Reference to the service client.
         /// </param>
-        public Auth(MyTitle client)
+        public Auth(Client client)
         {
             if (client == null) 
             {
@@ -42,7 +42,7 @@ namespace RecipesAPI.Client
         /// <summary>
         /// Gets a reference to the MyTitle
         /// </summary>
-        public MyTitle Client { get; private set; }
+        public Client Client { get; private set; }
 
         /// <param name='loginViewModel'>
         /// </param>

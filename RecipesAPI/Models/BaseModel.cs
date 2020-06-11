@@ -6,6 +6,5 @@ namespace RecipesAPI.Models
     {
         [Key]
         public int Id { get; set; }
-
     }
 }

@@ -13,5 +13,15 @@ namespace RecipesAPI.DBContexts
 
         public RecipesDbContext(DbContextOptions<RecipesDbContext> options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Recipe>()
+                .Property(r => r.CreatedAt)
+                .HasDefaultValueSql("NOW()");
+            modelBuilder.Entity<Recipe>()
+               .Property(r => r.UpdatedAt)
+               .HasDefaultValueSql("NOW()");
+        }
+
     }
 }
