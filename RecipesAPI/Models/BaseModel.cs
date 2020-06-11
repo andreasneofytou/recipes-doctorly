@@ -5,7 +5,7 @@ namespace RecipesAPI.Models
     public class BaseModel
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
     }
 }
